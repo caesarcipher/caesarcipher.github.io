@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>reflect cam input</title>
+ 
+<style>
+#body{
+    margin: 0;
+    background-color: black;
+}
+#cam {
+	width: 100%;
+	height: 100%;
+}
+</style>
+</head>
+ 
+<body id="body">
+<video id="cam" autoplay="true"/>
+<script>
+var video = document.querySelector("#cam");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("something broke");
+    });
+}
+</script>
+</body>
+</html>
